@@ -1,4 +1,5 @@
 # NYC-Twitter-Activities
+## Current version: Pro1_CQ_W6_e1.ipynb
 
 Based on the dataset of twitter, which contains
 * timestamp
