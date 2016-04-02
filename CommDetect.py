@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 __author__ = "Stephen"
-__date__ = "2016_03_27"
+__date__ = "2016_03_29"
 
 import numpy as np
 import pandas as pd
@@ -10,7 +10,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import networkx as nx
 import os
-import community #Louvain method
 import operator
 from datetime import datetime, timedelta, date
 import time
