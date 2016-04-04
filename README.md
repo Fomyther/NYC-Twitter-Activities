@@ -1,5 +1,5 @@
 ### NYC-Twitter-Activities
-# Current version: Pro1_CQ_W7_e1.ipynb
+# Current version: Pro1_CQ_W7_e2.ipynb
 
 Based on the dataset of twitter, which contains
 * timestamp
