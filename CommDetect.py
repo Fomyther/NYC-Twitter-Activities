@@ -51,7 +51,7 @@ def Graph_build(network, date_index, directed = True):
     The argument 'directed' indicates whether this graph is directed,
     default setting is True
     '''
-    Graph = nx.DiGraph() if directed == True else nx.Graph()
+    Graph = nx.DiGraph() if directed else nx.Graph()
     places = Data[date_index].ZipCode.unique()
     Graph.add_nodes_from(places)
     
@@ -111,7 +111,7 @@ def PartitionSorting(partition):
 
 def PlotMapPart(fig, partition, date_index=0, zips=geo_NY, key='postalCode', cmap='spectral', title='Community Detection',size=221, alpha=.7):
     ax = fig.add_subplot(size + date_index)
-    y = {i:'Community %d%d'%( partition[i]/10, partition[i]%10) for i in partition.keys()}
+    y = {i:'Community %d%d'%( (partition[i]+1)/10, (partition[i]+1)%10) for i in partition.keys()}
     p = pd.Series(y).reset_index().rename(columns={'index':'postalCode',0:'part'})
     zips.postalCode = zips.postalCode.astype(int)
     z = zips.merge(p, on=key, how='left')
@@ -200,7 +200,7 @@ def HighlightFeatures(demo_city, feature_name, sorted_partition, LEGEND, title =
     MEAN = pd.DataFrame(weighted_mean)
     STD = pd.DataFrame(weighted_std)
     fig = plt.figure(figsize = (20, 9))
-    
+
     if by_feature:
         bar_step = np.arange(0.0, level) - 0.5*level +2
         Color = matplotlib.cm.spectral(np.linspace(0,1,level))
@@ -238,6 +238,9 @@ def HighlightFeatures(demo_city, feature_name, sorted_partition, LEGEND, title =
         ax.set_xticklabels(LABEL, fontsize = 18, fontweight="bold")
         if LEGEND != None:
             plt.legend(LEGEND, fontsize = 18-feature_len/2, loc =2)
+
+    plt.axhline(y=1, linewidth = 4,c='r',alpha = .2, ls='--')
+    #plt.axhline(y=0, linewidth = 4,c='k',alpha = .9)
     plt.grid()
     plt.show()
 
@@ -375,6 +378,17 @@ def ShowFeatureWBP(demo_city, feature_name, sorted_partition, LEGEND = None, tit
         plt.legend(LEGEND, fontsize = 18-feature_len/2, loc =2)
     plt.grid()
     plt.show()
+
+def ReadDemoNY():
+    Demographic = pd.read_csv(RootPath + "/Demographic_2014.csv", low_memory=False)
+    variable_names = list(Demographic.iloc[0,:])
+    Demographic = Demographic.iloc[1:,:]
+    Demographic.index = range(len(Demographic))
+    zipcode = pd.DataFrame([int(Demographic.loc[i,'Name of Area'].split(" ")[0]) for i in range(len(Demographic))])
+    Demographic.columns = variable_names
+    Demographic = pd.concat((zipcode,Demographic),axis=1)
+    Demographic = Demographic.rename(columns={0:'zipcode'})
+    return Demographic[Demographic.zipcode.isin(PLACES)]
 
 
 population = ['SE_T009_002','SE_T009_003','SE_T009_004','SE_T009_005']
