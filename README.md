@@ -1,5 +1,6 @@
 ### NYC-Twitter-Activities
-# Current version: Pro1_CQ_W7_e2.ipynb
+# Current version:
+# Pro1_CQ_W7_e2.ipynb
 # GravModel_e6.ipynb
 
 Based on the dataset of twitter, which contains
