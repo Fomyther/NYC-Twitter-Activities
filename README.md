@@ -1,6 +1,6 @@
 # Current version:
 # Pro1_CQ_W7_e2.ipynb
-# GravityModel_e7.ipynb
+# GravityModel_e8.ipynb
 
 Based on the dataset of twitter, which contains
 * timestamp
