@@ -1,6 +1,6 @@
-# Current version:
-# Pro1_CQ
-# GravityModel
+# Notebook for codes:
+# 1.Pro1_CQ
+# 2.GravityModel
 
 Based on the dataset of twitter, which contains
 * timestamp
