@@ -1,6 +1,6 @@
 # Current version:
-# Pro1_CQ_W7_e2.ipynb
-# GravityModel_e8.ipynb
+# Pro1_CQ is for Network Detection and some Socio-economic showcase
+# GravityModel is self-explanatory
 
 Based on the dataset of twitter, which contains
 * timestamp
