@@ -1,6 +1,6 @@
 # Current version:
-# Pro1_CQ is for Network Detection and some Socio-economic showcase
-# GravityModel is self-explanatory
+# Pro1_CQ
+# GravityModel
 
 Based on the dataset of twitter, which contains
 * timestamp
