@@ -1,6 +1,6 @@
 # Notebook for codes:
 # 1.Pro1_CQ
-# 2.GravityModel
+# 2.GravityModel_e16
 
 Based on the dataset of twitter, which contains
 * timestamp
